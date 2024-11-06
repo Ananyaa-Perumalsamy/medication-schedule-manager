@@ -2,16 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medication History</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Medication History</h1>
-    <ul>
-        {% for med in medications %}
-            <li>{{ med[1] }} - {{ med[2] }} at {{ med[3] }} on {{ med[4] }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{{ url_for('index') }}">Back to Schedule</a>
+    <!-- Navigation Bar -->
+    <nav>
+        <h1>Medication Schedule Manager</h1>
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('history') }}">Medication History</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <section class="med-list">
+            <h2>Medication History</h2>
+            <ul>
+                {% for med in medications %}
+                    <li class="med-item">
+                        <span><strong>{{ med[1] }}</strong> - {{ med[2] }} taken at {{ med[3] }} on {{ med[4] }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
 </body>
 </html>
+

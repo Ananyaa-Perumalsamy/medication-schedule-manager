@@ -1,40 +1,119 @@
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
+    background-color: #f4f6f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
 h1, h2 {
     color: #333;
 }
 
-form {
-    margin-bottom: 20px;
+/* Navigation Bar */
+nav {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-label {
-    margin-right: 10px;
+nav h1 {
+    margin: 0;
+    font-size: 1.5em;
 }
 
-button {
-    padding: 8px 12px;
-    margin-top: 5px;
-}
-
-a {
-    color: #0066cc;
+.nav-links a {
+    color: #fff;
+    margin-left: 20px;
     text-decoration: none;
 }
 
-a:hover {
+.nav-links a:hover {
     text-decoration: underline;
 }
 
-ul {
+/* Container for Content */
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Section */
+.form-section {
+    margin-bottom: 20px;
+}
+
+.med-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.med-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.add-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #0077cc;
+    color: white;
+    font-size: 16px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: #005fa3;
+}
+
+/* Medication List */
+.med-list ul {
     list-style-type: none;
     padding: 0;
 }
 
-li {
-    margin: 8px 0;
+.med-item {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.taken-label {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.mark-taken-btn {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.mark-taken-btn:hover {
+    background-color: #218838;
+}
+
+

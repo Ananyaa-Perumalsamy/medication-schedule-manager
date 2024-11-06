@@ -2,34 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medication Schedule Manager</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Medication Schedule Manager</h1>
-    <form method="POST">
-        <label>Name: <input type="text" name="name" required></label>
-        <label>Dosage: <input type="text" name="dosage" required></label>
-        <label>Time: <input type="time" name="time" required></label>
-        <button type="submit">Add Medication</button>
-    </form>
+    <!-- Navigation Bar -->
+    <nav>
+        <h1>Medication Schedule Manager</h1>
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('history') }}">Medication History</a>
+        </div>
+    </nav>
 
-    <h2>Upcoming Doses</h2>
-    <ul>
-        {% for med in medications %}
-            <li>
-                {{ med[1] }} - {{ med[2] }} at {{ med[3] }}
-                {% if med[5] == 0 %}
-                    <form method="POST" action="{{ url_for('take_medication', id=med[0]) }}">
-                        <button type="submit">Mark as Taken</button>
-                    </form>
-                {% else %}
-                    <span>Taken</span>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Add Medication Form -->
+        <section class="form-section">
+            <h2>Add New Medication</h2>
+            <form method="POST" class="med-form">
+                <label for="name">Medication Name</label>
+                <input type="text" id="name" name="name" placeholder="e.g., Aspirin" required>
 
-    <a href="{{ url_for('history') }}">View Medication History</a>
+                <label for="dosage">Dosage</label>
+                <input type="text" id="dosage" name="dosage" placeholder="e.g., 100mg" required>
+
+                <label for="time">Time</label>
+                <input type="time" id="time" name="time" required>
+
+                <button type="submit" class="add-btn">Add Medication</button>
+            </form>
+        </section>
+
+        <!-- Upcoming Doses List -->
+        <section class="med-list">
+            <h2>Upcoming Doses</h2>
+            <ul>
+                {% for med in medications %}
+                    <li class="med-item">
+                        <span><strong>{{ med[1] }}</strong> - {{ med[2] }} at {{ med[3] }}</span>
+                        {% if med[5] == 0 %}
+                            <form method="POST" action="{{ url_for('take_medication', id=med[0]) }}">
+                                <button type="submit" class="mark-taken-btn">Mark as Taken</button>
+                            </form>
+                        {% else %}
+                            <span class="taken-label">Taken</span>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
 </body>
 </html>
+
