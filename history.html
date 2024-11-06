@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medication History</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Medication History</h1>
+    <ul>
+        {% for med in medications %}
+            <li>{{ med[1] }} - {{ med[2] }} at {{ med[3] }} on {{ med[4] }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Schedule</a>
+</body>
+</html>
